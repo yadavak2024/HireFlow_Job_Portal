@@ -1667,7 +1667,7 @@ function CandidateDashboard() {
     const fetchApplications = async () => {
       try {
         const response = await fetch(
-          "http://localhost:5000/api/applications/my-applications",
+          "https://hireflow-backend-ccba.onrender.com/api/applications/my-applications",
           {
             headers: {
               Authorization: `Bearer ${token}`,
