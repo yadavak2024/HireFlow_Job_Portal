@@ -1,3 +1,4 @@
+const API = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
 import React, { useEffect, useState } from "react";
 
 import {
@@ -192,7 +193,7 @@ function Navbar() {
 
       const response = await fetch(
 
-        "http\://localhost:5000/api/jobs/" + jobId,
+        `${API}/jobs/${jobId}`,
 
         {
 
@@ -918,7 +919,7 @@ function Jobs() {
 
         const response = await fetch(
 
-          "http\://localhost:5000/api/jobs"
+          `${API}/jobs`
 
         );
 
@@ -1210,7 +1211,7 @@ function JobDetails({ id }) {
 
       const response = await fetch(
 
-        "http\://localhost:5000/api/applications",
+        `${API}/applications`,
 
         {
 
@@ -1278,7 +1279,7 @@ function JobDetails({ id }) {
 
         const response = await fetch(
 
-          "http\://localhost:5000/api/jobs/" + id
+          `${API}/jobs/${id}`
 
         );
 
@@ -1667,7 +1668,7 @@ function CandidateDashboard() {
     const fetchApplications = async () => {
       try {
         const response = await fetch(
-          "https://hireflow-backend-ccba.onrender.com/api/applications/my-applications",
+          `${API}/applications/my-applications`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -1874,7 +1875,7 @@ function RecruiterDashboard() {
   const fetchMyJobs = async () => {
     try {
       const response = await fetch(
-        "http://localhost:5000/api/jobs/my-jobs",
+        `${API}/jobs/my-jobs`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -1898,7 +1899,7 @@ function RecruiterDashboard() {
       setApplicationMessage("");
 
       const response = await fetch(
-        "http://localhost:5000/api/applications/recruiter-applications",
+        `${API}/applications/recruiter-applications`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -1941,7 +1942,7 @@ function RecruiterDashboard() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/jobs",
+        `${API}/jobs`,
         {
           method: "POST",
           headers: {
@@ -1988,9 +1989,7 @@ function RecruiterDashboard() {
   const updateApplicationStatus = async (applicationId, status) => {
     try {
       const response = await fetch(
-        "http://localhost:5000/api/applications/" +
-          applicationId +
-          "/status",
+        `${API}/applications/${applicationId}/status`,
         {
           method: "PATCH",
           headers: {
@@ -2037,7 +2036,7 @@ function RecruiterDashboard() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/jobs/" + jobId,
+        `${API}/jobs/${jobId}`,
         {
           method: "DELETE",
           headers: {
@@ -2728,9 +2727,9 @@ function Auth({ register = false }) {
 
       const url = register
 
-        ? "http\://localhost:5000/api/auth/register"
+        ? `${API}/auth/register`
 
-        : "http\://localhost:5000/api/auth/login";
+        : `${API}/auth/login`;
 
 
 
